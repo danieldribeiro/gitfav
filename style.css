@@ -9,12 +9,13 @@
 :root{
     --background-color: #000;
     --text-color: #fff;
+    --remove-text: #F75A68;
     --input-color: #06181C;
     --button-color: #065E7C;
     --button-hover-color: #0a7ba0;
     --thead-color: #092D38;
-    --tr-odd-color: #06161b84;
-    --tr-even-color: #4A808C;
+    --tr-odd-color: #0d2b3484;
+    --tr-even-color: #132124;
     --disabled-text: #4E5455;
     font-size: 68.5%;
     font-family: "Roboto", sans-serif;
@@ -91,6 +92,7 @@ header{
 
 #table{
     width: 100%;
+    height: 70vh;
     color: var(--text-color);
     border-collapse: collapse;
     font-size: 1.4rem;
@@ -99,7 +101,7 @@ header{
 
 #table thead{
     background-color: var(--thead-color);
-    height: 40px;
+    height: 5rem;
 }
 
 #table thead th:first-child{
@@ -112,11 +114,17 @@ header{
 }
 
 #tbody{
+    width: 60vw;
+    height: 60vh;
+}
+
+#tbody tr{
     width: 100%;
+    height: 100%;
 }
 
 #tbody tr p{
-    height: 60vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,4 +139,52 @@ header{
 #tbody tr p img{
     width: 12rem;
     margin-bottom: 30px;
+}
+
+.user-row{
+    height: 8rem;
+}
+
+.user-row td{
+    padding: 2rem;
+    text-align: center;
+}
+
+.user-row:nth-child(odd){
+    background-color: var(--tr-odd-color);
+}
+
+.user-row:nth-child(even){
+    background-color: var(--tr-even-color);
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-image{
+    border-radius: 50%;
+    width: 56px;
+}
+
+.user a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.user p{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.remove{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--remove-text);
+    cursor: pointer;
 }
