@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Salve seus perfis favoritos do GitHub">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+    <title>GitFav</title>
 </head>
 <body>
-    
+    <header>
+        <img src="assets/Gitfav-logo.svg" alt="Gitfav logo">
+        <div class="inputContainer">
+            <input type="text" id="input" placeholder="Digite o nome do usuário do GitHub">
+            <button id="btn">
+                <img src="assets/star-icon.svg" alt="Ícone de favoritar" class="button-icon">
+                Favoritar
+            </button>
+        </div>
+    </header>
+
+    <section class="table-container">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Repositórios</th>
+                    <th>Seguidores</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            
+            <tbody id="tbody">
+                <tr>
+                    <td colspan="4">
+                        <p> 
+                            <img src="assets/favicon.svg" alt="Ícone estrela">
+                            Nenhum favorito ainda</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>
