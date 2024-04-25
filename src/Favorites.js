@@ -1,27 +1,66 @@
 //Classe para lógica dos dados como os dados serão estruturados
 export class Favorites {
-  constructor(root){
-    this.root = document.querySelector(root)
+  constructor(root) {
+    this.root = document.querySelector(root);
 
     this.getUsers = () => {
-      const endpoint = `https://api.github.com/users/danieldribeiro`
+      const endpoint = `https://api.github.com/users/danieldribeiro`;
       fetch(endpoint)
-        .then(data => data.json())
-        .then(data => console.log(data))
-    }
+        .then((data) => data.json())
+        .then(({login, name, public_repos, followers}) => console.log(login, name, public_repos, followers));
+    };
 
-    this.emptyTable = `
+    // addUser(username){
+
+    // }
+  }
+}
+
+//Classe para criar as visualizações html e gerenciar eventos
+export class FavoritesView extends Favorites {
+  constructor(root) {
+    super(root);
+
+    this.update();
+  }
+
+  onFavorite() {
+    const favoriteButton = document.querySelector("#favorite-btn");
+    favoriteButton.addEventListener("click", () => {
+      const { value } = document.querySelector("input");
+      this.addUser(value);
+    });
+  }
+
+  update() {
+    this.clearTable();
+    this.getUsers();
+    this.onFavorite();
+  }
+
+  clearTable() {
+    const tbody = this.root;
+    const tr = document.querySelector("tr");
+    tbody.innerHTML = this.createEmptyRow();
+  }
+
+  createEmptyRow(){
+    const emptyTable = `
       <tr class = "empty">
-          <td colspan="4">
-              <p>
-              <img src="assets/favicon.svg" alt="Ícone estrela" />
-              Nenhum favorito ainda
-              </p>
-          </td>
+        <td colspan="4">
+            <p>
+            <img src="assets/favicon.svg" alt="Ícone estrela" />
+            Nenhum favorito ainda
+            </p>
+        </td>
       </tr>
     `
 
-    this.usersTable = `
+    return emptyTable
+  }
+
+  createUsersRows(){
+    const usersTable = `
       <tr class="user-row">
         <td class="user">
           <img src="https://avatars.githubusercontent.com/u/74836636?v=4" alt="user image" class="user-image">                    
@@ -35,26 +74,7 @@ export class Favorites {
         <td class="remove">Remover</td>
       </tr>
     `
-  }
-}
 
-//Classe para criar as visualizações html e gerenciar eventos
-export class FavoritesView extends Favorites {
-  constructor(root){
-    super(root)
-
-    this.update()
-  }
-
-  update(){
-    this.clearTable()
-    this.getUsers()
-
-  }
-
-  clearTable(){
-    const tbody = this.root
-    const tr = document.querySelector('tr')
-    tbody.innerHTML = this.emptyTable
+    return usersTable
   }
 }
