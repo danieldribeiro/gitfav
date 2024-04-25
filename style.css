@@ -1,190 +1,186 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root{
-    --background-color: #000;
-    --text-color: #fff;
-    --remove-text: #F75A68;
-    --input-color: #06181C;
-    --button-color: #065E7C;
-    --button-hover-color: #0a7ba0;
-    --thead-color: #092D38;
-    --tr-odd-color: #0d2b3484;
-    --tr-even-color: #132124;
-    --disabled-text: #4E5455;
-    font-size: 68.5%;
-    font-family: "Roboto", sans-serif;
+:root {
+  --background-color: #000;
+  --text-color: #fff;
+  --remove-text: #F75A68;
+  --input-color: #06181C;
+  --button-color: #065E7C;
+  --button-hover-color: #0a7ba0;
+  --thead-color: #092D38;
+  --tr-odd-color: #0d2b3484;
+  --tr-even-color: #132124;
+  --disabled-text: #4E5455;
+  font-size: 68.5%;
+  font-family: "Roboto", sans-serif;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    max-width: 60%;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 60%;
+  margin: 0 auto;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-header{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.inputContainer{
-    display: flex;
-    width: 50%;
-    gap: 10px;
+.inputContainer {
+  display: flex;
+  width: 50%;
+  gap: 10px;
 }
 
-.inputContainer input{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.4rem;
-    background-color: var(--input-color);
-    cursor: pointer;
-    border-radius: 8px;
+.inputContainer input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  background-color: var(--input-color);
+  cursor: pointer;
+  border-radius: 8px;
 }
 
-.inputContainer input:focus{
-    outline: 1px solid var(--disabled-text);
+.inputContainer input:focus {
+  outline: 1px solid var(--disabled-text);
 }
 
-.inputContainer button{
-    width: 25%;
-    padding: 10px 15px;
-    border: none;
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-weight: 600;
-    background-color: var(--button-color);
-    cursor: pointer;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: .2s;
+.inputContainer button {
+  width: 25%;
+  padding: 10px 15px;
+  border: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: var(--button-color);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: .2s;
 }
 
-.button-icon{
-    width: 18px;
+.button-icon {
+  width: 18px;
 }
 
-.inputContainer button:hover{
-    background-color: var(--button-hover-color);
+.inputContainer button:hover {
+  background-color: var(--button-hover-color);
 }
 
-.table-container{
-    margin-top: 6rem;
-    width: 100%;
+.table-container {
+  margin-top: 6rem;
+  width: 100%;
+  height: 70vh;
 }
 
-#table{
-    width: 100%;
-    height: 70vh;
-    color: var(--text-color);
-    border-collapse: collapse;
-    font-size: 1.4rem;
+#table {
+  width: 100%;
+  color: var(--text-color);
+  border-collapse: collapse;
+  font-size: 1.4rem;
 
 }
 
-#table thead{
-    background-color: var(--thead-color);
-    height: 5rem;
+#table thead {
+  background-color: var(--thead-color);
+  height: 5rem;
 }
 
-#table thead th:first-child{
-    width: 40%;
-    border-radius: 8px 0 0 0;
+#table thead th:first-child {
+  width: 40%;
+  border-radius: 8px 0 0 0;
 }
 
-#table thead th:last-child{
-    border-radius: 0 8px 0 0;
+#table thead th:last-child {
+  border-radius: 0 8px 0 0;
 }
 
-#tbody{
-    width: 60vw;
-    height: 60vh;
+#tbody .empty {
+  width: 100%;
+  height: 100%;
 }
 
-#tbody tr{
-    width: 100%;
-    height: 100%;
+#tbody .empty p {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 4rem;
+  border: 1px solid var(--thead-color);
+  border-radius: 0 0 8px 8px;
+  color: var(--disabled-text);
+  user-select: none;
 }
 
-#tbody tr p{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    font-size: 4rem;
-    border: 1px solid var(--thead-color);
-    border-radius: 0 0 8px 8px;
-    color: var(--disabled-text);
-    user-select: none;
+#tbody .empty p img {
+  width: 12rem;
+  margin-bottom: 30px;
 }
 
-#tbody tr p img{
-    width: 12rem;
-    margin-bottom: 30px;
+.user-row {
+  height: 8rem;
 }
 
-.user-row{
-    height: 8rem;
+.user-row td {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
 }
 
-.user-row td{
-    padding: 2rem;
-    text-align: center;
+.user-row:nth-child(odd) {
+  background-color: var(--tr-odd-color);
 }
 
-.user-row:nth-child(odd){
-    background-color: var(--tr-odd-color);
+.user-row:nth-child(even) {
+  background-color: var(--tr-even-color);
 }
 
-.user-row:nth-child(even){
-    background-color: var(--tr-even-color);
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
 }
 
-.user{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
+.user-image {
+  border-radius: 50%;
+  width: 56px;
 }
 
-.user-image{
-    border-radius: 50%;
-    width: 56px;
+.user a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  text-align: left;
 }
 
-.user a{
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    text-align: left;
+.user p {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-.user p{
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-.remove{
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--remove-text);
-    cursor: pointer;
+.remove {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--remove-text);
+  cursor: pointer;
 }
