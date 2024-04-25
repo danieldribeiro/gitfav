@@ -36,13 +36,18 @@ export class Favorites {
       alert(err.message)
     }
   }
+  
+  deleteUser(userId) {
+    this.favorites = this.favorites.filter(user => user.id !== Number(userId.dataset.userId));
+    this.update()
+    this.save();
+  }
 }
 
 
 export class FavoritesView extends Favorites {
   constructor(root) {
     super(root)
-
     this.onFavorite()
     this.update()
   }
@@ -58,22 +63,21 @@ export class FavoritesView extends Favorites {
     input.addEventListener('keypress', (e) => {
       if(e.key === 'Enter'){
         this.add(input.value)
+        input.value = ''
+        input.focus()
       }
-      input.value = ''
-      input.focus()
     })
   }
 
   onDelete(){
-    if(this.favorites.length > 0){
-      const deleteButton = document.querySelector('#delete-btn')
-      deleteButton.addEventListener('click', () => {
-        this.favorites = []
-        this.clearTable()
-        this.update()
-        this.save()
-      })
-    }
+    const deleteButtons = document.querySelectorAll('.remove');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const userId = button.closest('tr');
+            this.deleteUser(userId);
+        });
+    });
   }
 
   update() {
@@ -88,11 +92,12 @@ export class FavoritesView extends Favorites {
       row.querySelector('span').textContent = user.login
       row.querySelector('#repos').textContent = user.public_repos
       row.querySelector('#followers').textContent = user.followers
+      row.dataset.userId = user.id
 
       this.root.append(row)
-
-      this.onDelete()
     });
+
+    this.onDelete()
   }
 
   clearTable() {

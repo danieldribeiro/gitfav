@@ -4,7 +4,8 @@ export class GetUser {
 
     return fetch(endpoint)
       .then((data) => data.json())
-      .then(({ login, name, public_repos, followers }) => ({
+      .then(({ id, login, name, public_repos, followers }, userId) => ({
+        id,
         login,
         name,
         public_repos,
