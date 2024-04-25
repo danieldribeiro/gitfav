@@ -4,6 +4,7 @@ export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
     this.favorites = [];
+    this.load()
   }
 
   load(){
@@ -58,6 +59,8 @@ export class FavoritesView extends Favorites {
       if(e.key === 'Enter'){
         this.add(input.value)
       }
+      input.value = ''
+      input.focus()
     })
   }
 
@@ -75,7 +78,6 @@ export class FavoritesView extends Favorites {
 
   update() {
     this.clearTable();
-
     this.favorites.forEach((user) => {
       const row = this.createUsersRows()
 
